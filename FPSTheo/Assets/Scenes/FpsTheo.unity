@@ -389,6 +389,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 578207792932772091, guid: 2e95faa7a532c5044a09c8c2fb8e92a1, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3976221148844599264, guid: 2e95faa7a532c5044a09c8c2fb8e92a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.31
@@ -441,6 +445,18 @@ PrefabInstance:
       propertyPath: lookXLimit
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 6692312694515043472, guid: 2e95faa7a532c5044a09c8c2fb8e92a1, type: 3}
+      propertyPath: Blocks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692312694515043472, guid: 2e95faa7a532c5044a09c8c2fb8e92a1, type: 3}
+      propertyPath: Blocks.Array.data[0]
+      value: 
+      objectReference: {fileID: 1310249259864374399, guid: d27989b5fa3f9334c9912192634e2ce8, type: 3}
+    - target: {fileID: 6692312694515043472, guid: 2e95faa7a532c5044a09c8c2fb8e92a1, type: 3}
+      propertyPath: Blocks.Array.data[1]
+      value: 
+      objectReference: {fileID: 1310249259864374399, guid: 6f4d2ef04faccb1438c53a6dcf4c08c7, type: 3}
     - target: {fileID: 8539612301301812531, guid: 2e95faa7a532c5044a09c8c2fb8e92a1, type: 3}
       propertyPath: m_SlopeLimit
       value: 80

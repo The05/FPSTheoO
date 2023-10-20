@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,15 +14,13 @@ public class PlayerMovement : MonoBehaviour
     public Camera playerCamera;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 45.0f;
-    public GameObject cubePrefab;
+    public GameObject[] Blocks;
+    int blockIndex = 0;
     public float gridSize = 1.0f;
-
-
     CharacterController characterController;
     private Camera headCamera;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
-
     [HideInInspector]
     public bool canMove = true;
 
@@ -29,13 +28,19 @@ public class PlayerMovement : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>(); 
         headCamera = GetComponentInChildren<Camera>();
-
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     void Update()
     {
+        for(int i = 0; i <= 9; i++)
+        {
+            if (Input.GetKeyDown(i.ToString())){
+
+            }
+        }
+
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
         bool isRunning = Input.GetKey(KeyCode.LeftShift);
@@ -74,6 +79,18 @@ public class PlayerMovement : MonoBehaviour
         layerMask = ~layerMask;
             
         if(Physics.Raycast(headCamera.transform.position, headCamera.transform.forward, out hit, 100, layerMask)){
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (Input.GetKey(KeyCode.LeftControl))
+                {
+                    Instantiate<GameObject>(Blocks[blockIndex], hit.point + 0.5f * hit.normal, Quaternion.LookRotation(hit.normal, Vector3.up));
+                }
+                else
+                {
+                Instantiate<GameObject>(Blocks[blockIndex], hit.transform.position + hit.normal, Quaternion.LookRotation(hit.normal, Vector3.up));
+                }
+            }
+
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 if (hit.transform.gameObject.tag == "Block")
@@ -81,11 +98,8 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(hit.transform.gameObject);
                 }
             }
-            if (Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                Instantiate<GameObject>(cubePrefab, hit.point + 0.5f * hit.normal, Quaternion.LookRotation(hit.normal, Vector3.up));
-            }
+            
         }
     }
-    }
+}
 

@@ -3,7 +3,9 @@ guid: a5c57f621b9519842b96cc11ccebb3cf
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - playerCamera: {instanceID: 0}
+  - cubePrefab: {fileID: 1310249259864374399, guid: d27989b5fa3f9334c9912192634e2ce8, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
